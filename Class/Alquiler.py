@@ -37,3 +37,27 @@ class alquiler:
 
 
 
+
+
+    def setMatricula(self,matricula):
+         self.matricula=matricula
+
+    def setNif(self,nif):
+         self.nif=nif
+
+    def setFecha_alquiler(self,fecha_alquiler):
+         self.fecha_alquiler=fecha_alquiler
+
+    def setFecha_debolucion(self,fecha_debolucion):
+         self.fecha_debolucion=fecha_debolucion
+
+    def setImporte(self,importe):
+         self.importe=importe
+
+    def setCompletada(self,completada):
+         self.completada=completada
+
+
+
+
+
