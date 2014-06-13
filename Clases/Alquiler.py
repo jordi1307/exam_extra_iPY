@@ -56,6 +56,12 @@ class alquiler:
 
     def setCompletada(self,completada):
          self.completada=completada
+    def ToString(self):
+        return str(self.matricula)+";"+str(self.nif)+";"+str(self.fecha_alquiler)+";"+str(self.fecha_debolucion)+";"+str(self.importe)+";"+str(self.completada)
+        
+    def seif(self):
+         with open('alquiler.txt', mode='a',encoding ='utf-8') as f_alquiler:
+             f_alquiler.write(self.ToString())
 
 
 

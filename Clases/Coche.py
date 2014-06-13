@@ -21,13 +21,26 @@ class coche:
         return self.modelo
     def getPrecio_dia(self):
         return self.precio_dia
-    def getDisponible(self):
-        return self.disponible
+    def getDisponible(self,matricula):
+        if matricula==self.matricula:
+            return self.disponible
+
 
 
 
     def setDisponible(self,disponible):
         self.disponible=disponible
+        self.seif()
     def setPrecio_dia(self,precio_dia):
         self.precio_dia=precio_dia
+        self.seif()
+    def ToString(self):
+        return str(self.matricula)+";"+str(self.marca)+";"+str(self.modelo)+";"+str(self.precio_dia)+";"+str(self.disponible)
+
+    def seif(self):
+        import re
+        with open('alquiler.txt', mode='r+',encoding ='utf-8') as f_alquiler:
+             if re.search(f_alquiler.read(),self.matricula):
+                 f_alquiler.write(self.ToString())
+
 
