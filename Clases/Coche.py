@@ -1,4 +1,5 @@
 __author__ = 'jor'
+import re
 class coche:
     matricula=""
     marca=""
@@ -38,9 +39,11 @@ class coche:
         return str(self.matricula)+";"+str(self.marca)+";"+str(self.modelo)+";"+str(self.precio_dia)+";"+str(self.disponible)
 
     def seif(self):
-        import re
+
         with open('alquiler.txt', mode='r+',encoding ='utf-8') as f_alquiler:
              if re.search(f_alquiler.read(),self.matricula):
                  f_alquiler.write(self.ToString())
-
-
+    def addCocha(self):#1.2.4
+        with open('alquiler.txt', mode='a',encoding ='utf-8') as f_alquiler:
+             if re.search(f_alquiler.read(),self.matricula):
+                 f_alquiler.write("\n"+self.ToString())

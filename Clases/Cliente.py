@@ -18,8 +18,7 @@ class cliente:
         return self.nombre
     def getApellido(self):
         return self.apellido
-    def Alquilar(self):
-#1.2.1
+    def Alquilar(self):#1.2.1
         matricula=input("inserte matricula del coche a alquilar")
         with open('veiculos.txt', mode='w',encoding ='utf-8') as veiculos:
             	for veiculo in veiculos:
@@ -44,24 +43,45 @@ class cliente:
                         Alquiler.alquiler.seif()
                         Coche.coche.setDisponible(False)
                         Coche.coche.seif()
-    def SercaCocha(self):
+    def SercarCochesDisponibles(self):
+          with open('veiculos.txt', mode='w',encoding ='utf-8') as veiculos:#1.2.2
+            	for veiculo in veiculos:
+                    veic=veiculo.split(";")
+
+                    Coche.coche.__init__(veic[0],veic[1],veic[2],veic[3],veic[4],veic[5])
+                    if Coche.coche.getDisponible()==True:
+                        print("Coche:\n"
+                              "\tMatricula: % \n"
+                              "\tMarca: %\n"
+                              "\tModelo: %\n"
+                              "\tPrecio por dia: %\n"
+                              "\tDisponible: %\n"
+                                % Coche.coche.getMatricula(),
+                                 Coche.coche.getMarca(),
+                                 Coche.coche.getModelo(),
+                                 Coche.coche.getPrecio_dia())
+
+    def SercarCochesEnLloger(self):#1.2.3
           with open('veiculos.txt', mode='w',encoding ='utf-8') as veiculos:
             	for veiculo in veiculos:
                     veic=veiculo.split(";")
 
                     Coche.coche.__init__(veic[0],veic[1],veic[2],veic[3],veic[4],veic[5])
-                    print("Coche:\n"
-                          "\tMatricula: % \n "
-                          "\tMarca: %\n"
-                          "\tModelo: %\n"
-                          "\tPrecio por dia: %\n"
-                          "\tDisponible: %\n",
-                          Coche.coche.getMatricula(),
-                          Coche.coche.getMarca(),
-                          Coche.coche.getModelo(),
-                          Coche.coche.getPrecio_dia(),
-                          Coche.coche.getDisponible())
+                    if Coche.coche.getDisponible()==False:
+                        print("Coche:\n"
+                              "\tMatricula: % \n"
+                              "\tMarca: %\n"
+                              "\tModelo: %\n"
+                              "\tPrecio por dia: %\n"
+                              "\tDisponible: %\n"
+                                % Coche.coche.getMatricula(),
+                                 Coche.coche.getMarca(),
+                                 Coche.coche.getModelo(),
+                                 Coche.coche.getPrecio_dia())
+    def ToString(self):
+        return self.getNombre()+";"+self.getApellido()+";"+self.getNif()
+    def seif(self):
+          with open('clientes.txt', mode='a',encoding ='utf-8') as clientes:
+             clientes.write("\n"+self.ToString())
 
-
-#1.2.2
 
