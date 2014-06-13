@@ -1,5 +1,5 @@
 __author__ = 'jor'
-
+import
 class cliente:
     nombre=""
     apellido=""
@@ -16,4 +16,7 @@ class cliente:
         return self.nombre
     def getApellido(self):
         return self.apellido
+    def Alquilar(self):
+
+        matricula=input("inserte matricula del coche a alquilar")
 
